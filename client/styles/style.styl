@@ -1,0 +1,52 @@
+.clearfix:before,
+.clearfix:after
+    content ' '
+    display table
+
+.clearfix:after
+    clear both
+
+.clearfix
+    *zoom 1
+
+html
+	overflow-y: scroll
+
+html, body
+	font-size: 15px
+	font-family: Arial, sans-serif
+	letter-spacing: 1px
+
+img
+	max-width: 100%
+	height: auto
+
+textarea
+	height: 12em !important
+
+.admin_container
+	width: 90%
+	max-width: 1080px
+	margin: 0 auto
+	padding-bottom: 50px
+
+#list_releases
+	.admin_release
+		width: 50%
+		box-sizing: border
+		padding: 10px
+		float: left
+		&:hover
+			background-color: lightgray
+
+#capture_download
+	.thanks, .claimed, .error
+		display: none
+
+#release_info
+	img
+		max-width: 400px
+
+#capture_email
+	.thanks
+		display: none

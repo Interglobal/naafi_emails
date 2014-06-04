@@ -1,0 +1,60 @@
+<template name="admin_edit">
+
+	<section id="edit_release" class="admin_container">
+
+		<h3>Edit Release</h3>
+
+  		<h4><a href="/admin">Back to Admin</a></h4>
+
+		<form role="form">
+		  <div class="form-group">
+		    <label for="releaseTitle">Release title</label>
+		    <input type="text" class="form-control" id="releaseTitle" value="{{title}}">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="slug">Slug</label>
+		    <input type="text" class="form-control" id="slug" value="{{slug}}">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="artistName">Artist name</label>
+		    <input type="text" class="form-control" id="artistName" value="{{artist}}">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="tracklisting">Tracklisting</label>
+		    <textarea type="text" class="form-control" id="tracklisting">{{tracklisting}}</textarea>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="aboutText">About text</label>
+		    <textarea type="text" class="form-control" id="aboutText" value="{{about}}"></textarea>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="expiryDate">Date free downloads end</label>
+		    <input type="date" class="form-control" id="expiryDate" value="{{expiry}}">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="purchaseLink">Purchase link</label>
+		    <input type="url" class="form-control" id="purchaseLink" value="{{purchaselink}}">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="artwork">Artwork</label>
+		    <input type="url" class="form-control" id="artwork" value="{{artwork}}" required>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="zip">Zip</label>
+		    <input type="url" class="form-control" id="zip" value="{{zip}}" required>
+		  </div>
+
+		  <button type="submit" class="btn btn-default">Save</button>
+  		</form>
+
+	</section>
+
+</template>

@@ -1,0 +1,7 @@
+{
+  "packages": {
+    "iron-router": {},
+    "moment": {},
+    "es6-promises": {}
+  }
+}

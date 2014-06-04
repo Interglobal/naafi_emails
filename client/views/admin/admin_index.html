@@ -1,0 +1,72 @@
+<template name="admin_index">
+
+	<section id="add_release" class="admin_container">
+
+		<h3>Add Release</h3>
+
+		<form role="form" data-parsley-validate>
+		  <div class="form-group">
+		    <label for="releaseTitle">Release title</label>
+		    <input type="text" class="form-control" id="releaseTitle" required>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="artistName">Artist name</label>
+		    <input type="text" class="form-control" id="artistName" required>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="tracklisting">Tracklisting</label>
+		    <textarea type="text" class="form-control" id="tracklisting" required></textarea>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="aboutText">About text</label>
+		    <textarea type="text" class="form-control" id="aboutText"></textarea>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="expiryDate">Date free downloads end</label>
+		    <input type="date" class="form-control" id="expiryDate" required>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="purchaseLink">Purchase link</label>
+		    <input type="url" class="form-control" id="purchaseLink" required>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="artwork">Artwork</label>
+		    <input type="url" class="form-control" id="artwork" required>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="zip">Zip</label>
+		    <input type="url" class="form-control" id="zip" required>
+		  </div>
+
+		  <button type="submit" class="btn btn-default">Submit</button>
+  		</form>
+
+	</section>
+
+	<section id="list_releases" class="admin_container clearfix">
+
+		<h3>All Releases</h3>
+
+		{{#each releases}}
+			<div class="admin_release">
+				<h4><a href="/edit/{{_id}}">{{title}}</a> | <a href="/release/{{slug}}">View</a></h4>
+				<a href="/edit/{{_id}}"><img src="{{artwork}}"><br/></a>
+			</div>
+		{{/each}}
+
+	</section>
+
+	<section id="get_emails" class="admin_container">
+
+		<h3><a href="/export">Export emails</a></h3>
+
+	</section>
+
+</template>
