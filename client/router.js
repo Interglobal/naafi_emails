@@ -19,14 +19,21 @@ Router.map(function() {
 	  data: function() { return Releases.findOne(this.params._id); }
 	});
 
-	this.route('download', {
+	/*
+this.route('download', {
 	  path: '/download/:_id',
 	  template: 'capture_download',
-	  waitOn: function () {
-      	return Meteor.subscribe('captures');
-	  },
-	  data: function() { return Captures.findOne(this.params._id); }
+	  onBeforeAction: function (pause) {
+            Meteor.call('claimDownload', this.params._id, function(err, result) {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log(result);
+				}
+	   		});
+		}
 	});
+*/
 
 	this.route('login', {
 		path: '/login',
@@ -39,6 +46,7 @@ Router.map(function() {
 		onBeforeAction: function (pause) {
             if (!Meteor.user()) {
          	   this.render('login');
+         	   pause();
 			}
 		}
 	});
@@ -50,6 +58,7 @@ Router.map(function() {
 	  	onBeforeAction: function (pause) {
             if (!Meteor.user()) {
          	   this.render('login');
+         	   pause();
 			}
 		}
 	});
@@ -60,6 +69,7 @@ Router.map(function() {
 		onBeforeAction: function (pause) {
             if (!Meteor.user()) {
          	   this.render('login');
+         	   pause();
 			}
 		}
 	});

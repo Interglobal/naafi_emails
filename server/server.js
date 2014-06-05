@@ -2,6 +2,36 @@ Meteor.startup(function() {
 
 });
 
+Router.map(function () {
+  this.route('download', {
+    where: 'server',
+    path: '/download/:_id',
+
+    action: function () {
+      var token = this.params._id;
+
+      check(token, String);
+		var capture = Captures.findOne(token);
+		if (!capture.claimed) {
+			console.log('Download logic');
+			Captures.update(capture._id, {
+				$set: {
+					claimed: true
+				}
+			});
+
+			this.response.writeHead(200, {'Content-Type': 'text/html'});
+			this.response.end('hello from server: download');
+		} else {
+			console.log('Download already claimed.');
+
+			this.response.writeHead(200, {'Content-Type': 'text/html'});
+			this.response.end('hello from server: claimed');
+		}
+    }
+  });
+});
+
 Meteor.methods({
 	captureEmail: function(email) {
 
