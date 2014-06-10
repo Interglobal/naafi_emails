@@ -1,5 +1,5 @@
 Meteor.publish('releases', function() {
-	return Releases.find();
+	return Releases.find({}, {fields: {zip: 0}});
 });
 
 Meteor.publish('captures', function () {

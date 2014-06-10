@@ -2,6 +2,8 @@
   "packages": {
     "iron-router": {},
     "moment": {},
-    "es6-promises": {}
+    "es6-promises": {},
+    "kadira": {},
+    "npm": {}
   }
 }

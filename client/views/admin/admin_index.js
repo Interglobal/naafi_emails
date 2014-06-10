@@ -2,14 +2,18 @@ Template.admin_index.releases = function() {
 	return Releases.find();
 }
 
+Template.admin_index.captures = function() {
+	if (Meteor.userId()) {
+		return Captures.find();
+	}
+}
+
 Template.admin_index.events({
 	'submit form': function(e, template) {
 		e.preventDefault();
 		if (Meteor.user()) {
 			var title = template.find('#releaseTitle').value;
-
 			var slug = title.replace(/^\s+|\s+$/g, '').toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
-
 			var artist = template.find('#artistName').value;
 			var tracklisting = $(template.find('#tracklisting')).val();
 			var about = $(template.find('#aboutText')).val();
@@ -40,5 +44,10 @@ Template.admin_index.events({
 			    }
 		    });
 		}
+	},
+	'click #admin_menu li': function(e, template) {
+		var target = $(e.currentTarget).data('target');
+		$('.admin_section').hide();
+		$('#'+target).show();
 	}
 });

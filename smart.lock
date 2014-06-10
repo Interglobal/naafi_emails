@@ -4,7 +4,9 @@
     "basePackages": {
       "iron-router": {},
       "moment": {},
-      "es6-promises": {}
+      "es6-promises": {},
+      "kadira": {},
+      "npm": {}
     },
     "packages": {
       "iron-router": {
@@ -21,6 +23,16 @@
         "git": "https://github.com/CodeAdventure/meteor-es6-promises.git",
         "tag": "v0.1.0",
         "commit": "28b272f700765d24a0ff879105a46546094c2f68"
+      },
+      "kadira": {
+        "git": "https://github.com/meteorhacks/kadira.git",
+        "tag": "v2.1.5",
+        "commit": "1d33f51a7228fc430fb1823276fcfeeb6f251255"
+      },
+      "npm": {
+        "git": "https://github.com/arunoda/meteor-npm.git",
+        "tag": "v0.2.6",
+        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

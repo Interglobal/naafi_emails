@@ -2,7 +2,8 @@ Template.release_page.events({
 	'submit form': function(e, template) {
 		e.preventDefault();
 		var email = template.find('#email').value;
-		Meteor.call('captureEmail', email, function(err, result) {
+		var release = template.find('#release').value;
+		Meteor.call('captureEmail', email, release, function(err, result) {
 			if (err) {
 				console.log(err);
 			} else if (result === 'email') {

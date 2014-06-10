@@ -1,50 +1,27 @@
+Kadira.connect('5ycT2uwvTZK5Gkumf', '8dbc0f6a-1869-443a-abec-8f45df4a1784');
+
 Meteor.startup(function() {
 
 });
 
-Router.map(function () {
-  this.route('download', {
-    where: 'server',
-    path: '/download/:_id',
-
-    action: function () {
-      var token = this.params._id;
-
-      check(token, String);
-		var capture = Captures.findOne(token);
-		if (!capture.claimed) {
-			console.log('Download logic');
-			Captures.update(capture._id, {
-				$set: {
-					claimed: true
-				}
-			});
-
-			this.response.writeHead(200, {'Content-Type': 'text/html'});
-			this.response.end('hello from server: download');
-		} else {
-			console.log('Download already claimed.');
-
-			this.response.writeHead(200, {'Content-Type': 'text/html'});
-			this.response.end('hello from server: claimed');
-		}
-    }
-  });
-});
+Future = Meteor.require('fibers/future');
 
 Meteor.methods({
-	captureEmail: function(email) {
+	captureEmail: function(email, id) {
 
 		check(email, String);
+		check(id, String);
 
-/* 		var promise = new Promise(function(resolve, reject) { */
-			return Captures.insert({
-				email: email
+		var fut = new Future();
+			Captures.insert({
+				email: email,
+				release_id: id,
+				claimed: 0
 			}, function(err, result) {
 				if (err) {
 					console.log(err);
-/* 					reject('error'); */
-					return 'error';
+					throw new Meteor.Error(500, 'Capture failed');
+					fut.return(err);
 				} else {
 					var text = 'Your download from Naafi is ready. Follow this link to claim your file: ' + process.env.ROOT_URL + 'download/' + result;
 					Email.send({
@@ -53,24 +30,13 @@ Meteor.methods({
 						subject: 'Your Naafi download',
 						text: text
 					});
-/* 					resolve('email'); */
-					return 'email';
+					fut.return('email');
 				}
 			});
-
-/* 		}); */
-
-/*
-		promise.then(function(result) {
-			console.log(result);
-			return result;
-		}, function(err) {
-			console.log(err);
-			return err;
-		});
-*/
-
-	},
+		return fut.wait();
+	}
+	/*
+,
 	claimDownload: function(token) {
 		check(token, String);
 		var capture = Captures.findOne(token);
@@ -87,4 +53,5 @@ Meteor.methods({
 			return 'claimed';
 		}
 	}
+*/
 });

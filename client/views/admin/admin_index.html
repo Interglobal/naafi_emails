@@ -1,8 +1,16 @@
 <template name="admin_index">
 
-	<section id="add_release" class="admin_container">
+	<section id="admin_menu" class="admin_container">
 
-		<h3>Add Release</h3>
+		<ul>
+			<li data-target="add_release">Add Release</li>
+			<li data-target="list_releases">All Releases</li>
+			<li data-target="get_emails">Export emails</li>
+		</ul>
+
+	</section>
+
+	<section id="add_release" class="admin_container admin_section">
 
 		<form role="form" data-parsley-validate>
 		  <div class="form-group">
@@ -50,9 +58,7 @@
 
 	</section>
 
-	<section id="list_releases" class="admin_container clearfix">
-
-		<h3>All Releases</h3>
+	<section id="list_releases" class="admin_container admin_section clearfix">
 
 		{{#each releases}}
 			<div class="admin_release">
@@ -63,9 +69,9 @@
 
 	</section>
 
-	<section id="get_emails" class="admin_container">
+	<section id="get_emails" class="admin_container admin_section">
 
-		<h3><a href="/export">Export emails</a></h3>
+		{{#each captures}}{{email}}, {{/each}}
 
 	</section>
 
