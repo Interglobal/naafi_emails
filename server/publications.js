@@ -1,5 +1,10 @@
 Meteor.publish('releases', function() {
-	return Releases.find({}, {fields: {zip: 0}});
+	user = Meteor.users.findOne({_id:this.userId});
+	if (user) {
+		return Releases.find();
+	} else {
+		return Releases.find({}, {fields: {zip: 0}});
+	}
 });
 
 Meteor.publish('captures', function () {

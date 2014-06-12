@@ -49,5 +49,24 @@ Template.admin_index.events({
 		var target = $(e.currentTarget).data('target');
 		$('.admin_section').hide();
 		$('#'+target).show();
+	},
+	'click .delete_release': function(e, template) {
+		e.preventDefault();
+		Meteor.call('deleteRelease', this._id, function(err, result) {
+			if (err) {
+				console.log(err);
+			}
+		});
+	},
+	'click .clear_captures': function(e, template) {
+		e.preventDefault();
+		Meteor.call('clearCaptures', function(err, result) {
+			if (err) {
+				console.log(err);
+			}
+		});
+	},
+	'click .clickselect': function(e) {
+		$(e.target).selectText();
 	}
 });

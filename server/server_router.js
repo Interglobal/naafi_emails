@@ -6,7 +6,7 @@ Router.map(function () {
       var token = this.params._id;
       check(token, String);
 		var capture = Captures.findOne(token);
-		if (capture.claimed <= 2) {
+		if (capture.claimed <= 1) {
 			var release = Releases.findOne(capture.release_id);
 			if (release) {
 				var now = moment();

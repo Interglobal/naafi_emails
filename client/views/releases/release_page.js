@@ -3,14 +3,14 @@ Template.release_page.events({
 		e.preventDefault();
 		var email = template.find('#email').value;
 		var release = template.find('#release').value;
-		Meteor.call('captureEmail', email, release, function(err, result) {
+		var data = {email: email, release: release};
+		Meteor.call('captureEmail', data, function(err, result) {
 			if (err) {
 				console.log(err);
 			} else if (result === 'email') {
 				template.find('#email').value = '';
-				template.find('.thanks').show();
-			} else {
-				console.log(result);
+				$(template.find('.thanks')).show();
+				$(template.find('#captureform')).hide();
 			}
 		});
 	}

@@ -9,26 +9,41 @@
 .clearfix
     *zoom 1
 
-html
-	overflow-y: scroll
+@font-face {
+  font-family: 'KN';
+  src: url('/fonts/KN-Bold.eot');
+  src: url('/fonts/KN-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/KN-Bold.woff') format('woff'),
+       url('/fonts/KN-Bold.ttf')  format('truetype'),
+       url('/fonts/KN-Bold.svg#adaf5ad73b8508549a6466aae93748fc') format('svg');
+  font-style: normal
+}
 
-html, body
-	font-size: 15px
-	font-family: Arial, sans-serif
-	letter-spacing: 1px
+html, body, pre
+	background-color: black
+	font-size: 16px;
+	line-height: 15px;
 
 img
 	max-width: 100%
 	height: auto
 
+// ADMIN
+
 textarea
-	height: 12em !important
+	height: 11em !important
 
 .admin_container
+	letter-spacing: 1px
 	width: 90%
-	max-width: 1080px
+	max-width: 1040px
 	margin: 0 auto
-	padding-bottom: 30px
+	padding: 10px
+	box-sizing: border-box
+	background-color: white
+
+#list_releases, #get_emails
+	display: none
 
 #admin_menu
 	ul
@@ -43,24 +58,48 @@ textarea
 			&:hover
 				cursor: pointer
 
-
 #list_releases
 	.admin_release
 		width: 50%
 		box-sizing: border
 		padding: 10px
 		float: left
-		&:hover
-			background-color: lightgray
 
 #capture_download
 	.thanks, .claimed, .error
 		display: none
 
-#release_info
-	img
-		max-width: 400px
-
 #capture_email, #download_embed
 	.thanks
 		display: none
+
+// PUBLIC
+
+.container
+	font-family: 'KN', 'Helvetica Neue', Helvetica, Arial, sans-serif
+	max-width: 600px
+	width: 90%
+	background-color: black
+	color: white
+	text-transform: uppercase
+	margin-bottom: 20px
+
+	#logo
+		margin-top: 20px
+		width: 300px
+
+	h3
+		font-size: 36px
+
+	pre
+		font-family: 'KN', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+#download_embed
+	input
+		padding: 4px 8px
+		height: 30px
+		margin-left: 4px
+		margin-top: 2px
+	.btn, .btn-default
+		padding: 4px 8px
+		margin-top: 2px

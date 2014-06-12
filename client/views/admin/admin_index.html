@@ -62,8 +62,15 @@
 
 		{{#each releases}}
 			<div class="admin_release">
-				<h4><a href="/edit/{{_id}}">{{title}}</a> | <a href="/release/{{slug}}">View</a></h4>
-				<a href="/edit/{{_id}}"><img src="{{artwork}}"><br/></a>
+				<h4>{{title}} | <a href="/release/{{slug}}">View</a> | <a href="/edit/{{_id}}">Edit</a> | <a href="#" class="delete_release">Delete</a></h4>
+				<a href="/release/{{slug}}"><img src="{{artwork}}"><br/></a>
+				<h4>Embed code</h4>
+				<div class="clickselect">
+					&lt;iframe src="{{embedUrl _id}}" width="100%" height="34" frameborder="0"&gt;&lt;/iframe&gt;
+				</div>
+				<div>
+					<iframe src="{{embedUrl _id}}" width="100%" height="34" frameborder="0"></iframe>
+				</div>
 			</div>
 		{{/each}}
 
@@ -71,8 +78,11 @@
 
 	<section id="get_emails" class="admin_container admin_section">
 
+		<div class="clickselect">
 		{{#each captures}}{{email}}, {{/each}}
+		</div>
 
+		<p><button class="clear_captures btn btn-default">I've successfully imported emails. Clear database</button></p>
 	</section>
 
 </template>

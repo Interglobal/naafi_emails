@@ -16,3 +16,10 @@ Handlebars.registerHelper('timeLeft', function(date) {
 	return 'Free download expires ' + expiry.fromNow();
 
 });
+
+Handlebars.registerHelper('embedUrl', function(id) {
+
+	var root = window.location.origin;
+	return url = root + '/embed/' + id;
+
+});
