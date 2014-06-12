@@ -64,7 +64,7 @@ Meteor.methods({
 		user = Meteor.users.findOne({_id:this.userId});
 		if (user) {
 			var fut = new Future();
-			Captures.remove({}, function() {
+			Captures.remove({}, function(err, result) {
 				if (err) {
 					console.log(err);
 					throw new Meteor.Error(500);
