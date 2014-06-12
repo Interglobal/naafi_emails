@@ -13,6 +13,5 @@ iron-router
 accounts-ui
 moment
 email
-es6-promises
 kadira
 npm
