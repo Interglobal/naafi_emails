@@ -25,10 +25,10 @@ Meteor.methods({
 					console.log(err);
 					throw new Meteor.Error(500, 'Capture failed');
 				} else {
-					var text = 'Your download from Naafi is ready. Follow this link to claim your file: ' + process.env.ROOT_URL + 'download/' + result;
+					var text = 'Your download from Naafi is ready. Go to this link to claim your file: ' + process.env.ROOT_URL + 'download/' + result;
 					Email.send({
 						to: data.email,
-						from: 'naafi@naafi.mx',
+						from: 'downloads@naafi.mx',
 						subject: 'Your Naafi download',
 						text: text
 					});
