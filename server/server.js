@@ -19,8 +19,6 @@ Meteor.methods({
 				claimed: 0
 			}, function(err, result) {
 
-				console.log('insert callback');
-
 				if (err) {
 					console.log(err);
 					throw new Meteor.Error(500, 'Capture failed');
