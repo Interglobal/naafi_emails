@@ -1,7 +1,7 @@
 Kadira.connect('5ycT2uwvTZK5Gkumf', '8dbc0f6a-1869-443a-abec-8f45df4a1784');
 
 Meteor.startup(function() {
-
+	console.log(process.env);
 });
 
 Future = Meteor.require('fibers/future');
@@ -25,10 +25,10 @@ Meteor.methods({
 					console.log(err);
 					throw new Meteor.Error(500, 'Capture failed');
 				} else {
-					var text = 'Your download from Naafi is ready. Go to this link to claim your file: ' + process.env.ROOT_URL + 'download/' + result;
+					var text = 'Your download from N.A.A.F.I is ready. Go to this link to claim your file: ' + process.env.ROOT_URL + 'download/' + result;
 					Email.send({
 						to: data.email,
-						from: 'downloads@naafi.mx',
+						from: 'N.A.A.F.I <downloads@naafi.mx>',
 						subject: 'Your Naafi download',
 						text: text
 					});

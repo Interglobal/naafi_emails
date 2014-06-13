@@ -11,24 +11,36 @@ Router.map(function() {
 	this.route('release', {
 	  path: '/release/:_slug',
 	  template: 'release_page',
+	  waitOn: function () {
+			return Meteor.subscribe('releases');
+	  },
 	  data: function() { return Releases.findOne({slug: this.params._slug}); }
 	});
 
 	this.route('embed', {
 	  path: '/embed/:_id',
 	  template: 'release_embed',
+	  waitOn: function () {
+			return Meteor.subscribe('releases');
+	  },
 	  data: function() { return Releases.findOne(this.params._id); }
 	});
 
 	this.route('download_claimed', {
 		path: '/download_claimed/:_id',
 		template: 'download_claimed',
+		waitOn: function () {
+			return Meteor.subscribe('releases');
+		},
 		data: function() { return Releases.findOne(this.params._id); }
 	});
 
 	this.route('download_expired', {
 		path: '/download_expired/:_id',
 		template: 'download_expired',
+		waitOn: function () {
+			return Meteor.subscribe('releases');
+		},
 		data: function() { return Releases.findOne(this.params._id); }
 	});
 
@@ -61,6 +73,9 @@ Router.map(function() {
 	this.route('edit', {
 	  	path: '/edit/:_id',
 	  	template: 'admin_edit',
+	  	waitOn: function () {
+			return Meteor.subscribe('releases');
+		},
 	  	data: function() { return Releases.findOne(this.params._id); },
 	  	onBeforeAction: function (pause) {
             if (!Meteor.user()) {
