@@ -1,3 +1,15 @@
+Template.release_embed.rendered = function() {
+	$('html').addClass('no-bg');
+};
+
+Template.release_embed.created = function() {
+	$('html').addClass('no-bg');
+};
+
+Template.release_embed.created = function() {
+	$('html').removeClass('no-bg');
+};
+
 Template.release_embed.events({
 	'submit form': function(e, template) {
 		e.preventDefault();
