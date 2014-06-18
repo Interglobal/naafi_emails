@@ -4,6 +4,24 @@ Meteor.startup(function() {
 	console.log(process.env);
 });
 
+Releases.allow({
+	insert: function(userId) {
+		if (userId) {
+			return true
+		}
+	},
+	update: function(userId) {
+		if (userId) {
+			return true
+		}
+	},
+	remove: function(userId) {
+		if (userId) {
+			return true
+		}
+	}
+});
+
 Future = Meteor.require('fibers/future');
 
 Meteor.methods({

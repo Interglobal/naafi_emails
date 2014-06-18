@@ -3,6 +3,8 @@
     "iron-router": {},
     "moment": {},
     "kadira": {},
-    "npm": {}
+    "npm": {},
+    "fast-render": {},
+    "spin": {}
   }
 }

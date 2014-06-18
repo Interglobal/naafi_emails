@@ -6,7 +6,14 @@ Router.configure({
 
 Router.map(function() {
 
-	this.route('index', {path: '/', template: 'release_index'});
+	this.route('index', {
+		path: '/',
+		template: 'release_index',
+		waitOn: function () {
+			return Meteor.subscribe('releases');
+		},
+		fastRender: true
+	});
 
 	this.route('release', {
 	  path: '/release/:_slug',
@@ -14,6 +21,7 @@ Router.map(function() {
 	  waitOn: function () {
 			return Meteor.subscribe('releases');
 	  },
+	  fastRender: true,
 	  data: function() { return Releases.findOne({slug: this.params._slug}); }
 	});
 
@@ -23,6 +31,7 @@ Router.map(function() {
 	  waitOn: function () {
 			return Meteor.subscribe('releases');
 	  },
+	  fastRender: true,
 	  data: function() { return Releases.findOne(this.params._id); }
 	});
 
@@ -32,6 +41,7 @@ Router.map(function() {
 		waitOn: function () {
 			return Meteor.subscribe('releases');
 		},
+		fastRender: true,
 		data: function() { return Releases.findOne(this.params._id); }
 	});
 
@@ -41,6 +51,7 @@ Router.map(function() {
 		waitOn: function () {
 			return Meteor.subscribe('releases');
 		},
+		fastRender: true,
 		data: function() { return Releases.findOne(this.params._id); }
 	});
 
@@ -60,8 +71,9 @@ Router.map(function() {
 		path: '/admin',
 		template: 'admin_index',
 		waitOn: function () {
-			return Meteor.subscribe('captures');
+			return [Meteor.subscribe('releases'), Meteor.subscribe('captures')];
 	  	},
+	  	fastRender: true,
 		onBeforeAction: function (pause) {
             if (!Meteor.user()) {
          	   this.render('admin_login');
@@ -76,6 +88,7 @@ Router.map(function() {
 	  	waitOn: function () {
 			return Meteor.subscribe('releases');
 		},
+		fastRender: true,
 	  	data: function() { return Releases.findOne(this.params._id); },
 	  	onBeforeAction: function (pause) {
             if (!Meteor.user()) {

@@ -1,5 +1,7 @@
 <template name="release_index">
 
+	{{pageTitle release.title}}
+
 	<section id="release_info" class="container">
 		<a href="http://naafi.mx"><img src="/naafi-logo-white.png" id="logo" /></a>
 		<h3>{{release.artist}} - {{release.title}}</h3>
@@ -31,7 +33,8 @@
 				<button type="submit" class="btn btn-default">DOWNLOAD</button>
 			</form>
 
-			<span class="thanks">Thanks. Check your email for your download link.</span>
+			<div class="thanks">Thanks. Check your email for your download link.</div>
+			{{> spinner}}
 
 		</section>
 	{{/if}}

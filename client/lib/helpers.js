@@ -23,3 +23,11 @@ Handlebars.registerHelper('embedUrl', function(id) {
 	return url = root + '/embed/' + id;
 
 });
+
+Handlebars.registerHelper('pageTitle', function(title) {
+    if(title) {
+        document.title = 'N.A.A.F.I DOWNLOADS: ' + title;
+    } else {
+        document.title = 'N.A.A.F.I DOWNLOADS';
+    }
+});

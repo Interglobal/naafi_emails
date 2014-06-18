@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-insecure
 stylus
 jquery
 accounts-base
@@ -15,3 +14,5 @@ moment
 email
 kadira
 npm
+fast-render
+spin
