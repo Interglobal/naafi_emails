@@ -7,7 +7,8 @@
       "kadira": {},
       "npm": {},
       "fast-render": {},
-      "spin": {}
+      "spin": {},
+      "headly": {}
     },
     "packages": {
       "iron-router": {
@@ -22,8 +23,8 @@
       },
       "kadira": {
         "git": "https://github.com/meteorhacks/kadira.git",
-        "tag": "v2.4.0",
-        "commit": "18ac6e2b054f891560063427bfa36c817e585567"
+        "tag": "v2.4.1",
+        "commit": "b0de26c879f1e7a32d82cab53770ccbb00a1c5ab"
       },
       "npm": {
         "git": "https://github.com/arunoda/meteor-npm.git",
@@ -39,6 +40,11 @@
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.2",
         "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
+      },
+      "headly": {
+        "git": "https://github.com/ayal/headly",
+        "tag": "v0.1.1",
+        "commit": "f14effc81eab10efb876664bc010a5341ac95358"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

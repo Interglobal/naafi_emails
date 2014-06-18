@@ -1,25 +1,5 @@
-Kadira.connect('5ycT2uwvTZK5Gkumf', '8dbc0f6a-1869-443a-abec-8f45df4a1784');
-
 Meteor.startup(function() {
 	console.log(process.env);
-});
-
-Releases.allow({
-	insert: function(userId) {
-		if (userId) {
-			return true
-		}
-	},
-	update: function(userId) {
-		if (userId) {
-			return true
-		}
-	},
-	remove: function(userId) {
-		if (userId) {
-			return true
-		}
-	}
 });
 
 Future = Meteor.require('fibers/future');

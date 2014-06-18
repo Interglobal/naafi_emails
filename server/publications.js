@@ -13,3 +13,21 @@ Meteor.publish('captures', function () {
   		return Captures.find();
   	}
 });
+
+Releases.allow({
+	insert: function(userId) {
+		if (userId) {
+			return true
+		}
+	},
+	update: function(userId) {
+		if (userId) {
+			return true
+		}
+	},
+	remove: function(userId) {
+		if (userId) {
+			return true
+		}
+	}
+});

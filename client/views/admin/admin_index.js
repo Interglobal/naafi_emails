@@ -40,7 +40,8 @@ Template.admin_index.events({
 			    if (err) {
 				    console.log(err);
 			    } else {
-				    Router.go('release', {_id: result});
+				    $('.admin_section').hide();
+					$('#list_releases').show();
 			    }
 		    });
 		}
