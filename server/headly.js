@@ -11,7 +11,7 @@ Meteor.headly.config({
 		} else {
 			return {
 				title: 'N.A.A.F.I DOWNLOADS',
-				image: '/naafi-logo-white.png'
+				image: process.env.ROOT_URL + 'naafi-logo-white.png'
 			}
 		}
 	},
