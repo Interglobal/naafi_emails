@@ -1,5 +1,5 @@
 Template.release_index.release = function() {
-	return Releases.findOne({},{timestamp: -1});
+	return Releases.findOne({}, {sort: {timestamp: -1}});
 }
 
 Template.release_index.events({

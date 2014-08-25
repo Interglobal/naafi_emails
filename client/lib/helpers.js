@@ -19,6 +19,7 @@ Handlebars.registerHelper('timeLeft', function(date) {
 
 Handlebars.registerHelper('embedUrl', function(id) {
 
+// this should use env ROOT_URL !
 	var root = window.location.origin;
 	return url = root + '/embed/' + id;
 

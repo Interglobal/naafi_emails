@@ -13,7 +13,7 @@ Template.admin_edit.events({
 			var artwork = template.find('#artwork').value;
 			var zip = template.find('#zip').value;
 
-			Releases.update({_id: this._id}, {
+			Releases.update({_id: this._id}, {$set: {
 			    title: title,
 			    slug: slug,
 			    artist: artist,
@@ -24,7 +24,7 @@ Template.admin_edit.events({
 
 			    artwork: artwork,
 			    zip: zip
-		    }, function(err, result) {
+		    }}, function(err, result) {
 			    if (err) {
 				    console.log(err);
 			    } else {

@@ -1,5 +1,5 @@
 Template.admin_index.releases = function() {
-	return Releases.find();
+	return Releases.find({}, {sort: {timestamp: -1}});
 }
 
 Template.admin_index.captures = function() {

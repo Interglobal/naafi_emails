@@ -15,7 +15,8 @@
 		{{#if downloadActive release.expiry}}
 			{{timeLeft release.expiry}}
 		{{else}}
-			<a href="{{release.purchaseLink}}">Buy</a>
+			{{purchaselink}}
+			<a class="btn btn-default buy_link" href="{{purchaselink}}">Buy</a>
 		{{/if}}
 
 	</section>
@@ -33,7 +34,7 @@
 				<button type="submit" class="btn btn-default">DOWNLOAD</button>
 			</form>
 
-			<div class="thanks">Thanks. Check your email for your download link.</div>
+			<div class="thanks">Thanks. Check your email.</div>
 			{{> spinner}}
 
 		</section>
