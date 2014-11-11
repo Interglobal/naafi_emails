@@ -1,12 +1,13 @@
-Template.admin_index.releases = function() {
-	return Releases.find({}, {sort: {timestamp: -1}});
-}
-
-Template.admin_index.captures = function() {
-	if (Meteor.userId()) {
-		return Captures.find();
-	}
-}
+Template.admin_index.helpers({
+  releases: function() {
+	  return Releases.find({}, {sort: {timestamp: -1}});
+  },
+  captures: function() {
+  	if (Meteor.userId()) {
+  		return Captures.find();
+  	}
+  }
+});
 
 Template.admin_index.events({
 	'submit form': function(e, template) {

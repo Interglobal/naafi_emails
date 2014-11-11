@@ -1,3 +1,4 @@
+/*
 Meteor.headly.config({
 	data: function(req) {
 		if (req._parsedUrl.pathname === '/') {
@@ -19,3 +20,4 @@ Meteor.headly.config({
 		return '<meta property="og:type" content="website" /><meta property="og:site_name" content="N.A.A.F.I DOWNLOADS" /><meta property="og:title" content="' + data.title + '" /><meta property="og:image" content="' + data.image + '" />';
 	}
 });
+*/
