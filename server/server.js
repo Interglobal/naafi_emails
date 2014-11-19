@@ -2,7 +2,7 @@ Meteor.startup(function() {
 	console.log(process.env);
 });
 
-Future = Meteor.require('fibers/future');
+Future = Meteor.npmRequire('fibers/future');
 
 Meteor.methods({
 	captureEmail: function(data) {
