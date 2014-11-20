@@ -1,0 +1,1 @@
+Meteor.absoluteUrl({rootUrl:'http://downloads.naafi.mx'});

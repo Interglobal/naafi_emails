@@ -1,5 +1,9 @@
 Meteor.startup(function() {
-	console.log(process.env);
+// 	console.log(process.env);
+	console.log(process.env.PORT);
+	console.log(process.env.ROOT_URL);
+	console.log(process.env.MONGO_URL);
+	console.log(process.env.MAIL_URL);
 });
 
 Future = Meteor.npmRequire('fibers/future');
