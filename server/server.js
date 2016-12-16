@@ -6,12 +6,15 @@ Meteor.startup(function() {
 	console.log(process.env.MAIL_URL);
 });
 
-Future = Meteor.npmRequire('fibers/future');
+const Future = Npm.require('fibers/future');
+const fs = Future.wrap(Npm.require('fs'));
 
 Meteor.methods({
+
 	captureEmail: function(data) {
 		check(data.email, String);
 		check(data.release, String);
+
 
 		var fut = new Future();
 
